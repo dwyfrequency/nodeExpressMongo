@@ -4,7 +4,8 @@ const log = console.log;
 
 const app = express();
 
-// How middleware works - for some reason only intermediately works for me
+// How middleware works
+/* for some reason only intermediately works for me; **UPDATE - got it to work, issue was that i was running two express servers at once */
 app.use(function (req, res, next) {
   log(Date.now()); // logs time for each endpoint call
   req.name = 'Mr. Decodes' // once we add this value to our request obj, we have access to it throughout the application

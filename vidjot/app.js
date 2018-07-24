@@ -12,7 +12,6 @@ app.get('/', (req, res) => {
 
 app.get('/about', (req, res) => {
   // first param - endpoint, second param callback - for request and response 
-  log(req.name);
 });
 
 const port = 5000;
