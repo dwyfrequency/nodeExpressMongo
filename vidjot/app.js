@@ -13,12 +13,15 @@ app.set('view engine', 'handlebars');
 
 // Index Route
 app.get('/', (req, res) => {
-  // first param - endpoint, second param callback - for request and response 
-  res.render('index'); // now we are saying render the index.html
+  const title = 'Welcome'; 
+  // now we are saying render the index.html
+  res.render('index', {
+    title
+  }); // we can pass in variables with objects
 });
 
 app.get('/about', (req, res) => {
-  // first param - endpoint, second param callback - for request and response 
+  res.render('about');
 });
 
 const port = 5000;
