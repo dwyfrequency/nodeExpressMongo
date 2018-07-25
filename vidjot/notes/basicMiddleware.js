@@ -1,5 +1,5 @@
 // nodemon - lets us save and restart our page without rebooting our app file to see changes
-const express = require("express");
+const express = require('express');
 const log = console.log;
 
 const app = express();
@@ -8,7 +8,7 @@ const app = express();
 /* for some reason only intermediately works for me; **UPDATE - got it to work, issue was that i was running two express servers at once */
 app.use(function (req, res, next) {
   log(Date.now()); // logs time for each endpoint call
-  req.name = 'Mr. Decodes' // once we add this value to our request obj, we have access to it throughout the application
+  req.name = 'Mr. Decodes'; // once we add this value to our request obj, we have access to it throughout the application
   next(); // calls next piece of middleware to run
 });
 
