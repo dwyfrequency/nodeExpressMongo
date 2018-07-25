@@ -1,4 +1,5 @@
 // nodemon - lets us save and restart our page without rebooting our app file to see changes
+// alt + shift + f will format code 
 const express = require("express");
 const exphbs = require('express-handlebars');
 const log = console.log;
