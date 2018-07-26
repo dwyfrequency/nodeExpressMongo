@@ -1,35 +1,42 @@
 // nodemon - lets us save and restart our page without rebooting our app file to see changes
-// alt + shift + f will format code 
+// alt + shift + f will format code
 const express = require("express");
-const exphbs = require('express-handlebars');
-const mongoose = require('mongoose');
+const exphbs = require("express-handlebars");
+const mongoose = require("mongoose");
 const log = console.log;
 
 const app = express();
 
+// Map global promise - get rid of warning
+mongoose.Promise = global.Promise;
+
 // Connect to mongoose
-mongoose.connect('mongodb://127.0.0.1:27017/vidjot') // removed , {useMongoClient: true}
-  .then(() => log('MongoDB Connected...'))
+mongoose
+  // call local database
+  .connect("mongodb://127.0.0.1:27017/vidjot") // removed , {useMongoClient: true}
+  .then(() => log("MongoDB Connected..."))
   .catch(err => log(err));
 
-
 // Handlebars middleware
-app.engine( 'handlebars', exphbs({ 
-  defaultLayout: 'main' 
-}));
-app.set('view engine', 'handlebars');
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main"
+  })
+);
+app.set("view engine", "handlebars");
 
 // Index Route
-app.get('/', (req, res) => {
-  const title = 'Welcome'; 
+app.get("/", (req, res) => {
+  const title = "Welcome";
   // now we are saying render the index.html
-  res.render('index', {
+  res.render("index", {
     title
   }); // we can pass in variables with objects
 });
 
-app.get('/about', (req, res) => {
-  res.render('about');
+app.get("/about", (req, res) => {
+  res.render("about");
 });
 
 const port = 5000;
