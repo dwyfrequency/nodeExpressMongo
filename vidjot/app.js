@@ -2,9 +2,16 @@
 // alt + shift + f will format code 
 const express = require("express");
 const exphbs = require('express-handlebars');
+const mongoose = require('mongoose');
 const log = console.log;
 
 const app = express();
+
+// Connect to mongoose
+mongoose.connect('mongodb://127.0.0.1:27017/vidjot') // removed , {useMongoClient: true}
+  .then(() => log('MongoDB Connected...'))
+  .catch(err => log(err));
+
 
 // Handlebars middleware
 app.engine( 'handlebars', exphbs({ 
