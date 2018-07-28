@@ -39,8 +39,14 @@ app.get("/", (req, res) => {
   }); // we can pass in variables with objects
 });
 
+// About Route
 app.get("/about", (req, res) => {
   res.render("about");
+});
+
+// Add Idea Form
+app.get("/ideas/add", (req, res) => {
+  res.render("ideas/add");
 });
 
 const port = 5000;
